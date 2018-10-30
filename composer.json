@@ -1,0 +1,14 @@
+{
+    "name": "suifeng/autoload-tool",
+    "description": "Autoload class file",
+    "authors": [
+        {
+            "name": "随风",
+            "email": "suifengin412@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    }
+}
