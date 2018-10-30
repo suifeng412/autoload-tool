@@ -1,11 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lijiechao
+ * User: 随风
  * Desc: 测试文件
  * Date: 2018/10/30
  * Time: 下午3:27
  */
 
 
-Initialization::init(__DIR__);
+AutoloadTool\Initialization::init(__DIR__);

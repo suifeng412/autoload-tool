@@ -7,10 +7,14 @@
  * Time: 下午3:28
  */
 
+namespace AutoloadTool;
+
 class Initialization{
 
-    public static function init($root){
-        define('AUTOLOAD_TOOL_ROOT_PATH', $root);
+    public static function init($rootPath){
+        define('AUTOLOAD_TOOL_ROOT_PATH', $rootPath);
+        $loader = new Loader();
+        $loader->register();
     }
 
 
