@@ -43,6 +43,13 @@ class Loader{
 
     public function register(){
         spl_autoload_register("self::autoload");
+        self::loadFunctions();
+    }
+
+    public static function loadFunctions(){
+        foreach (Functions::$functionsPath as $v){
+            file_exists($v) && include_once "$v";
+        }
     }
 
 

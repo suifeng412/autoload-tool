@@ -7,6 +7,7 @@
  * Time: 下午2:31
  */
 return [
-    'force_get_dirs' => FALSE,  // 强制每次都去遍历目录
+    'force_get_dirs' => FALSE,          // 强制每次都去遍历目录
+    'function_dir' => 'functions'       // 函数包名字
 
 ];

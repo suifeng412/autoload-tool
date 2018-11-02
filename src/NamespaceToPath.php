@@ -22,8 +22,16 @@ class NamespaceToPath{
         if(is_dir($dir) && $handle=opendir($dir)){
             $path && $dirs[$dir] = ltrim(str_replace(DIRECTORY_SEPARATOR, '\\', $path) . '\\', '\\');
             while($file=readdir($handle)){
+
                 if($file=='.'||$file=='..'||$file=='.idea') continue;
+
                 $checkPath = $dir.'/'.$file;
+
+                $pattern = '/'.FUNCTION_DIR.'\/.*\.php/i';
+                if(preg_match($pattern, $checkPath)){
+                    Functions::$functionsPath[] = $checkPath;
+                }
+
                 if(is_dir($checkPath)){
                     $this->getDirs($checkPath, $path.'/'.$file);
                 }
