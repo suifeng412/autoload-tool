@@ -40,7 +40,7 @@ class NamespaceToPath{
      */
     public function getNamespaceToDir(){
         $data = [];
-        file_exists('./dirs.json') && $dirsJson = file_get_contents('./dirs.json');
+        !FORCE_GET_DIRS && file_exists('./dirs.json') && $dirsJson = file_get_contents('./dirs.json');
         $dirs = json_decode($dirsJson, true);
 
         // 初始化使用

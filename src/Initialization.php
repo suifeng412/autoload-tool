@@ -12,9 +12,17 @@ namespace AutoloadTool;
 class Initialization{
 
     public static function init($rootPath){
+        self::setConfig();
         define('AUTOLOAD_TOOL_ROOT_PATH', $rootPath);
         $loader = new Loader();
         $loader->register();
+    }
+
+    public static function setConfig(){
+        $config = include __DIR__.'/config/config.php';
+        foreach ($config??[] as $k => $v){
+            !defined(mb_strtoupper($k)) && define(mb_strtoupper($k), $v);
+        }
     }
 
 
