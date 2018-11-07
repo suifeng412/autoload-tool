@@ -48,13 +48,14 @@ class NamespaceToPath{
      */
     public function getNamespaceToDir(){
         $data = [];
-        !FORCE_GET_DIRS && file_exists('./dirs.json') && $dirsJson = file_get_contents('./dirs.json');
+        !FORCE_GET_DIRS && file_exists('./autoloadTool_dirs.json') && $dirsJson = file_get_contents('./autoloadTool_dirs.json');
         $dirs = json_decode($dirsJson??'', true);
 
         // 初始化使用
         if(empty($dirs)){
             $dirs = $this->getDirs(AUTOLOAD_TOOL_ROOT_PATH);
-            file_put_contents('./dirs.json', json_encode($dirs));
+            file_put_contents('./autoloadTool_dirs.json', json_encode($dirs));
+            Functions::save();
         }
 
         foreach ($dirs??[] as $k => $dir){

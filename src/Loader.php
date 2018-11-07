@@ -20,6 +20,8 @@ class Loader{
         $namespaceToPath = new NamespaceToPath();
         $data = $namespaceToPath->getNamespaceToDir();
 
+        self::loadFunctions();      // 加载函数文件
+
         $prefixDirs = [];   // 命名空间首字母 => 命名空间 => 真实路径
         extract($data);
 
@@ -43,11 +45,10 @@ class Loader{
 
     public function register(){
         spl_autoload_register("self::autoload");
-        self::loadFunctions();
     }
 
     public static function loadFunctions(){
-        foreach (Functions::$functionsPath as $v){
+        foreach (Functions::get()??[] as $v){
             file_exists($v) && include_once "$v";
         }
     }

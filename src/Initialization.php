@@ -18,6 +18,9 @@ class Initialization{
         $loader->register();
     }
 
+    /**
+     * 设置常量
+     */
     public static function setConfig(){
         $config = include __DIR__.'/config/config.php';
         foreach ($config??[] as $k => $v){
